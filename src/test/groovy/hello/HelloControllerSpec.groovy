@@ -42,4 +42,18 @@ class HelloControllerSpec extends Specification {
         entity.body == 'Greetings from Spring Boot!'
     }
 
+    void "should reverse request!"() {
+        when:
+        ResponseEntity<String> entity = new RestTemplate().getForEntity(url, String.class)
+
+        then:
+        entity.statusCode == HttpStatus.OK
+        entity.body == reversedString
+
+        where:
+        url                                 || reversedString
+        'http://localhost:8080/reverse/uno' || 'onu'
+        'http://localhost:8080/reverse/ufc' || 'cfu'
+    }
+
 }
