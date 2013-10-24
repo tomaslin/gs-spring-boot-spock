@@ -43,7 +43,7 @@ class HelloControllerSpec extends Specification {
  
         then:
         entity.statusCode == HttpStatus.OK
-        entity.body == 'No Greetings from Spring Boot!'
+        entity.body == 'Greetings from Spring Boot!'
     }
  
 }
