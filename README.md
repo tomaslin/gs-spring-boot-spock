@@ -15,13 +15,11 @@ To run the unit tests:
 
 To run tests and build the JAR file:
 
-    ./gradlew build
+    ./gradlew test
 
 ### Running
 
-First, build the JAR as desribed above.  Then:
-
-    java -jar build/libs/gs-spring-boot-0.1.0.jar
+    ./gradlew bootRun
 
 ## Using IntelliJ IDEA
 
