@@ -15,7 +15,7 @@ To run the unit tests:
 
 To run tests and build the JAR file:
 
-    ./gradlew test
+    ./gradlew build
 
 ### Running
 
