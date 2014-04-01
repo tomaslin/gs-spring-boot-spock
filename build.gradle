@@ -1,21 +1,20 @@
 buildscript {
+    ext {
+        springBootVersion = '1.0.0.RELEASE'
+    }
     repositories {
-        maven { url "http://repo.spring.io/libs-snapshot" }
-        mavenLocal()
+        mavenCentral()
     }
     dependencies {
-        def sbBuildScriptVersion = "1.0.0.RC5"
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${sbBuildScriptVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
+
 
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
-
-def springBootVersion = "1.0.0.RC5"
-
 
 jar {
     baseName = 'gs-spring-boot'
@@ -28,11 +27,11 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+    compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
     }
-    compile "org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"
-    compile "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-jetty"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
     testCompile "org.codehaus.groovy:groovy-all:2.2.0"
     testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
 }
